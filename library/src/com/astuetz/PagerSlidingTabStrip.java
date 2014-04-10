@@ -613,8 +613,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 	}
 
 	private static class TabViewHolder {
-		public TextView titleView;
-		public ImageView iconView;
+		public final TextView titleView;
+		public final ImageView iconView;
 
 		public TabViewHolder(View view) {
 			titleView = (TextView)view.findViewById(android.R.id.title);
