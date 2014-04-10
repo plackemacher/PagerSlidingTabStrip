@@ -208,11 +208,20 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 			if(viewHolder.titleView != null) {
 				CharSequence title = adapter.getPageTitle(position);
 				if(title == null) {
-					title = getContext().getString(tabProvider.getPageTitleResId(position));
+					final int titleResId = tabProvider.getPageTitleResId(position);
+
+					if(titleResId > 0) {
+						title = getContext().getString(titleResId);
+					}
 				}
 
-				viewHolder.titleView.setText(title);
-				viewHolder.titleView.setSingleLine();
+				if(title != null) {
+					viewHolder.titleView.setText(title);
+					viewHolder.titleView.setSingleLine();
+					viewHolder.titleView.setVisibility(View.VISIBLE);
+				} else {
+					viewHolder.titleView.setVisibility(View.GONE);
+				}
 			}
 
 			if(viewHolder.iconView != null) {
