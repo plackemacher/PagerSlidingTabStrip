@@ -14,9 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
-
 import com.astuetz.PagerSlidingTabStrip;
-import com.astuetz.PagerSlidingTabStrip.IconTabProvider;
 
 public class QuickContactFragment extends DialogFragment {
 
@@ -80,7 +78,7 @@ public class QuickContactFragment extends DialogFragment {
 		}
 	}
 
-	public class ContactPagerAdapter extends PagerAdapter implements IconTabProvider {
+	public class ContactPagerAdapter extends PagerAdapter implements PagerSlidingTabStrip.TabProvider {
 
 		private final int[] ICONS = { R.drawable.ic_launcher_gplus, R.drawable.ic_launcher_gmail,
 				R.drawable.ic_launcher_gmaps, R.drawable.ic_launcher_chrome };
@@ -92,6 +90,11 @@ public class QuickContactFragment extends DialogFragment {
 		@Override
 		public int getCount() {
 			return ICONS.length;
+		}
+
+		@Override
+		public int getPageTitleResId(int position) {
+			return 0;
 		}
 
 		@Override

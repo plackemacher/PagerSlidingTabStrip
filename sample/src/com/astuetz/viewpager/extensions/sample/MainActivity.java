@@ -56,6 +56,8 @@ public class MainActivity extends FragmentActivity {
 		pager = (ViewPager) findViewById(R.id.pager);
 		adapter = new MyPagerAdapter(getSupportFragmentManager());
 
+		tabs.setTabLayoutResId(R.layout.tab_view);
+
 		pager.setAdapter(adapter);
 
 		final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources()
@@ -173,7 +175,7 @@ public class MainActivity extends FragmentActivity {
 		}
 	};
 
-	public class MyPagerAdapter extends FragmentPagerAdapter {
+	public class MyPagerAdapter extends FragmentPagerAdapter implements PagerSlidingTabStrip.TabProvider {
 
 		private final String[] TITLES = { "Categories", "Home", "Top Paid", "Top Free", "Top Grossing", "Top New Paid",
 				"Top New Free", "Trending" };
@@ -197,6 +199,15 @@ public class MainActivity extends FragmentActivity {
 			return SuperAwesomeCardFragment.newInstance(position);
 		}
 
+		@Override
+		public int getPageTitleResId(int position) {
+			return 0;
+		}
+
+		@Override
+		public int getPageIconResId(int position) {
+			return 0;
+		}
 	}
 
 }
