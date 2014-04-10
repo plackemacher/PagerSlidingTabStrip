@@ -234,6 +234,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 					}
 
 					viewHolder.iconView.setImageDrawable(drawable);
+					viewHolder.iconView.setVisibility(View.VISIBLE);
+				} else {
+					viewHolder.iconView.setVisibility(View.GONE);
 				}
 			}
 
